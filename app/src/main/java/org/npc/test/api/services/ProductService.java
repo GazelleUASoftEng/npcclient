@@ -25,6 +25,18 @@ public class ProductService extends BaseRemoteService {
         }
     }
 
+    public Product getProductByLookupCode(String lookupCode) {
+        JSONObject rawJsonObject = this.requestSingle(
+                (new PathElementInterface[] { ApiLevel.ONE, ProductApiMethod.PRODUCT }), lookupCode
+        );
+
+        if (rawJsonObject != null) {
+            return (new Product()).loadFromJson(rawJsonObject);
+        } else {
+            return new Product().setApiRequestStatus(ProductApiRequestStatus.UNKNOWN_ERROR);
+        }
+    }
+
     public List<Product> getProducts() {
         List<Product> products;
         JSONObject rawJsonObject = this.requestSingle(
