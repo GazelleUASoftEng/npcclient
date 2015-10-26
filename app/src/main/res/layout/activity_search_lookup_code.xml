@@ -19,5 +19,5 @@
         android:layout_height="wrap_content"
         android:text="@string/button_search"
         android:layout_gravity="center_horizontal"
-        android:onClick="searchLookupCode"/>
+        android:onClick="searchProductLookupCodeOnClick"/>
 </LinearLayout>

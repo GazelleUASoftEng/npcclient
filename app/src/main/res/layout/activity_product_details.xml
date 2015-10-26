@@ -9,20 +9,23 @@
         android:layout_height="wrap_content"
         android:id="@+id/lookupCodeLabel"
         android:text="Lookup Code: "
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:focusable="false" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/lookupCodeResults"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:focusable="false" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/descriptionLabel"
         android:text="Description:"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:focusable="false" />
 
     <EditText
         android:layout_width="match_parent"
@@ -30,29 +33,34 @@
         android:inputType="textMultiLine"
         android:ems="10"
         android:id="@+id/productDescriptionResults"
-        android:layout_weight="0.31" />
+        android:layout_weight="0.31"
+        android:focusable="false" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/priceLabel"
         android:text="Price:"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:focusable="false"/>
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/productPriceResults" />
+        android:id="@+id/productPriceResults"
+        android:focusable="false" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/quantityLabel"
         android:text="Quantity:"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:focusable="false" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/productQuantityResults" />
+        android:id="@+id/productQuantityResults"
+        android:focusable="false" />
 </LinearLayout>

@@ -50,7 +50,7 @@ public class ProductDetails extends AppCompatActivity {
     }
 
     private TextView getLookupCodeTextView() {
-        return (TextView) this.findViewById(R.id.lookupcodeSearchBox);
+        return (TextView) this.findViewById(R.id.lookupCodeResults);
     }
 
     private TextView getDescriptionTextView(){
@@ -74,11 +74,9 @@ public class ProductDetails extends AppCompatActivity {
         protected void onPostExecute(Product result) {
             if (result.getApiRequestStatus() == ProductApiRequestStatus.OK) {
                 getLookupCodeTextView().setText(result.getLookupCode());
-
-                //The following 3 methods need to be implemented
                 getDescriptionTextView().setText(result.getProductDescription());
-                getPriceTextView().setText(result.getProductPrice());
-                getQuantityTextView().setText(result.getProductQuantity());
+                getPriceTextView().setText(result.getProductPriceText());
+                getQuantityTextView().setText(result.getProductQuantityText());
             } else {
                 getLookupCodeTextView().setText(result.getApiRequestStatus().name());
             }

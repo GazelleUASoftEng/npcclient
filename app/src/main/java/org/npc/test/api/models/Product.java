@@ -6,6 +6,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.UUID;
+import java.lang.String;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -30,6 +31,39 @@ public class Product implements ConvertToJsonInterface, LoadFromJsonInterface<Pr
     }
     public Product setLookupCode(String lookupCode) {
         this.lookupCode = lookupCode;
+        return this;
+    }
+
+    private String description;
+    public String getProductDescription(){
+        return this.description;
+    }
+    public Product setProductDescription(String description){
+        this.description = description;
+        return this;
+    }
+
+    private double price;
+    public double getProductPrice(){
+        return this.price;
+    }
+    public String getProductPriceText(){
+        return String.valueOf(this.price);
+    }
+    public Product setProductPrice(double price){
+        this.price = price;
+        return this;
+    }
+
+    private int quantity;
+    public int getProductQuantity(){
+        return this.quantity;
+    }
+    public String getProductQuantityText(){
+        return String.valueOf(this.quantity);
+    }
+    public Product getProductQuantity(int quantity){
+        this.quantity = quantity;
         return this;
     }
 
