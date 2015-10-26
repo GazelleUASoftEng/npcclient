@@ -6,10 +6,14 @@
     <string name="button_view_products">View Products</string>
     <string name="button_create_product">Create Product</string>
     <string name="button_create_dummy_product">Create Dummy Product</string>
+    <string name="button_search_product_lookup_code">Search Product by Lookup Code</string>
+    <string name="button_search">Search</string>
+    <string name="lookupcode_search">Lookup Code Search</string>
     <string name="product_id_extras_key">org.npc.test.ProductIdExtrasKey</string>
     <string name="title_activity_product_details">Product Details</string>
     <string name="title_activity_products_list">ProductsList</string>
     <string name="title_activity_create_product">CreateProduct</string>
+    <string name="title_activity_search_product_lookup_code">Search Product Lookup Code</string>
     <string name="product_save_alert_dialog_title">Product</string>
     <string name="product_save_failure">There was an issue saving the product</string>
     <string name="product_save_success">Successfully save the product</string>

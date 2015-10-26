@@ -48,4 +48,10 @@ public class TestActivity extends AppCompatActivity {
 			new Intent(this, CreateProduct.class)
 		);
 	}
+
+	public void searchProductLookupCodeOnClick(View view){
+		this.startActivity(
+				new Intent(this, SearchProductLookupCode.class)
+		);
+	}
 }

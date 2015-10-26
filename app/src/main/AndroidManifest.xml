@@ -34,6 +34,10 @@
             android:name=".CreateProduct"
             android:label="@string/title_activity_create_product" >
         </activity>
+        <activity
+            android:name=".SearchProductLookupCode"
+            android:label="@string/title_activity_search_product_lookup_code" >
+        </activity>
     </application>
 
 </manifest>
