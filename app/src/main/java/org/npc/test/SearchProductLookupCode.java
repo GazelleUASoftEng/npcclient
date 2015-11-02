@@ -15,6 +15,7 @@ import org.npc.test.api.services.ProductService;
 
 
 public class SearchProductLookupCode extends AppCompatActivity {
+    public static String lookupcodeQuery;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +26,7 @@ public class SearchProductLookupCode extends AppCompatActivity {
    public void searchProductLookupCodeOnClick(View view){
        Intent intent = new Intent(this, ProductDetails.class);
        EditText lookupcodeSearchBox = (EditText) this.findViewById(R.id.lookupcodeSearchBox);
-       String lookupcodeQuery = lookupcodeSearchBox.getText().toString();
+       lookupcodeQuery = lookupcodeSearchBox.getText().toString();
        this.startActivity(intent.putExtra(this.getResources().getString(R.string.product_id_extras_key), lookupcodeQuery));
    }
 }

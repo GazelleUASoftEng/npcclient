@@ -4,6 +4,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 import android.content.Intent;
 
@@ -24,6 +25,7 @@ public class ProductDetails extends AppCompatActivity {
 
         Intent intent = getIntent();
         productLookupCode = intent.getStringExtra(this.getResources().getString(R.string.product_id_extras_key));
+        getLookupCodeTextView().setText(SearchProductLookupCode.lookupcodeQuery);
 
     }
 
@@ -48,6 +50,11 @@ public class ProductDetails extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+    public void cancelButtonOnClick(View view){
+        this.startActivity(
+                new Intent(this, ProductsList.class)
+        );
+    }
 
     private TextView getLookupCodeTextView() {
         return (TextView) this.findViewById(R.id.lookupCodeResults);
@@ -59,6 +66,10 @@ public class ProductDetails extends AppCompatActivity {
 
     private TextView getPriceTextView(){
         return (TextView) this.findViewById(R.id.productPriceResults);
+    }
+
+    private TextView getActiveTextView(){
+        return (TextView) this.findViewById(R.id.productActiveResults);
     }
 
     private TextView getQuantityTextView(){
@@ -76,6 +87,7 @@ public class ProductDetails extends AppCompatActivity {
                 getLookupCodeTextView().setText(result.getLookupCode());
                 getDescriptionTextView().setText(result.getProductDescription());
                 getPriceTextView().setText(result.getProductPriceText());
+                getActiveTextView().setText(result.getProductActiveText());
                 getQuantityTextView().setText(result.getProductQuantityText());
             } else {
                 getLookupCodeTextView().setText(result.getApiRequestStatus().name());

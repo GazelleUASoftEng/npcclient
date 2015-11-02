@@ -55,6 +55,18 @@ public class Product implements ConvertToJsonInterface, LoadFromJsonInterface<Pr
         return this;
     }
 
+    private boolean active;
+    public boolean getProductActive(){
+        return this.active;
+    }
+    public String getProductActiveText(){
+        return String.valueOf(this.active);
+    }
+    public Product setProductActive(boolean active){
+        this.active = active;
+        return this;
+    }
+
     private int quantity;
     public int getProductQuantity(){
         return this.quantity;
@@ -62,7 +74,7 @@ public class Product implements ConvertToJsonInterface, LoadFromJsonInterface<Pr
     public String getProductQuantityText(){
         return String.valueOf(this.quantity);
     }
-    public Product getProductQuantity(int quantity){
+    public Product setProductQuantity(int quantity){
         this.quantity = quantity;
         return this;
     }
