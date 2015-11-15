@@ -28,6 +28,13 @@ public class transaction extends AppCompatActivity {
         pay.setText("Payement total is :    " + transObj.getPay_total());
         TextView balance = (TextView)findViewById(R.id.balance_left);
         balance.setText("Remaining Balance is :     " + transObj.getBalance());
+        Button splc = (Button)findViewById(R.id.product_button);
+        splc.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent intent = new Intent("org.npc.test.SearchProductLookupCode");
+                startActivity(intent);
+            }
+        });
         Button next = (Button)findViewById(R.id.complete_transaction);
         next.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
