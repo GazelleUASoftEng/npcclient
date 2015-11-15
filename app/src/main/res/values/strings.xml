@@ -17,4 +17,7 @@
     <string name="product_save_alert_dialog_title">Product</string>
     <string name="product_save_failure">There was an issue saving the product</string>
     <string name="product_save_success">Successfully save the product</string>
+    <string name="title_activity_landing_page">LandingPage</string>
+    <string name="landing_page_button">Begin Sale Transaction</string>
+    <string name="title_activity_transaction">transaction</string>
 </resources>

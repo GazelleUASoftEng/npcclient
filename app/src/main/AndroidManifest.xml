@@ -13,9 +13,8 @@
             android:name=".TestActivity"
             android:label="@string/app_name" >
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="org.npc.test.TestActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
@@ -37,6 +36,25 @@
         <activity
             android:name=".SearchProductLookupCode"
             android:label="@string/title_activity_search_product_lookup_code" >
+        </activity>
+        <activity
+            android:name=".LandingPage"
+            android:label="@string/title_activity_landing_page"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"></action>
+                <category android:name="android.intent.category.LAUNCHER"></category>
+            </intent-filter>
+
+        </activity>
+        <activity
+            android:name=".transaction"
+            android:label="@string/title_activity_transaction"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <intent-filter>
+                <action android:name="org.npc.test.transaction"></action>
+                <category android:name="android.intent.category.DEFAULT"></category>
+            </intent-filter>
         </activity>
     </application>
 
