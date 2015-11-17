@@ -14,24 +14,26 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class transaction extends AppCompatActivity {
-
+    TransactionObject transObj;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transaction);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        TransactionObject transObj = new TransactionObject();
+        transObj = new TransactionObject();
         TextView trans = (TextView)findViewById(R.id.transaction_total);
         trans.setText("Transaction total is :   " + transObj.getTrans_total());
         TextView pay = (TextView)findViewById(R.id.payment_total);
         pay.setText("Payement total is :    " + transObj.getPay_total());
         TextView balance = (TextView)findViewById(R.id.balance_left);
         balance.setText("Remaining Balance is :     " + transObj.getBalance());
-        Button splc = (Button)findViewById(R.id.product_button);
-        splc.setOnClickListener(new View.OnClickListener() {
+        Button searchProduct = (Button)findViewById(R.id.product_button);
+        searchProduct.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
+
                 Intent intent = new Intent("org.npc.test.SearchProductLookupCode");
+                intent.putExtra("TransactionObject",transObj);
                 startActivity(intent);
             }
         });
@@ -44,6 +46,17 @@ public class transaction extends AppCompatActivity {
             }
 
         });
+    }
+    protected void onResume(){
+        super.onResume();
+        Intent i = getIntent();
+        transObj = (TransactionObject)i.getSerializableExtra("TransactionObject");
+        setTransaction(transObj);
+    }
+
+    private void setTransaction(TransactionObject to){
+        TextView trans = (TextView)findViewById(R.id.transaction_total);
+        trans.setText("Transaction total is :   " + to.getTrans_total());
     }
 
 }

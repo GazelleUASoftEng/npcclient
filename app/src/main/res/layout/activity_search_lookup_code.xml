@@ -20,4 +20,11 @@
         android:text="@string/button_search"
         android:layout_gravity="center_horizontal"
         android:onClick="searchProductLookupCodeOnClick"/>
+    <ListView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:padding="10dp"
+        android:id="@+id/OrderList">
+
+    </ListView>
 </LinearLayout>

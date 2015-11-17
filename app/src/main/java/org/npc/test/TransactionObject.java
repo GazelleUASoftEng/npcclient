@@ -1,9 +1,11 @@
 package org.npc.test;
 
+import java.io.Serializable;
+
 /**
  * Created by Caleb on 11/15/15.
  */
-public class TransactionObject {
+public class TransactionObject implements Serializable {
     private int trans_total;
     private int pay_total;
     private int balance;
@@ -11,7 +13,7 @@ public class TransactionObject {
      public TransactionObject(){
         this.pay_total=0;
         this.pay_total=0;
-        this.balance=0;
+        this.balance=100000;
     }
     public int getTrans_total() {
         return trans_total;
