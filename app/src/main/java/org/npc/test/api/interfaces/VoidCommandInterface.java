@@ -1,4 +1,4 @@
-package org.npc.test.commands.interfaces;
+package org.npc.test.api.interfaces;
 
 public interface VoidCommandInterface {
     void execute();

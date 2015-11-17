@@ -2,7 +2,7 @@ package org.npc.test.commands;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.npc.test.api.models.Product;
-import org.npc.test.commands.interfaces.ResultCommandInterface;
+import org.npc.test.api.interfaces.ResultCommandInterface;
 
 import java.util.Random;
 

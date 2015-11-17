@@ -1,20 +1,13 @@
 package org.npc.test;
 
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.view.View;
 import android.content.Intent;
 import android.widget.EditText;
-
-import org.npc.test.api.enums.ProductApiRequestStatus;
-import org.npc.test.api.models.Product;
-import org.npc.test.api.services.ProductService;
-import org.npc.test.commands.orderObject;
+import org.npc.test.orderObject;
 
 import java.util.ArrayList;
 
@@ -48,11 +41,11 @@ public class SearchProductLookupCode extends AppCompatActivity {
     }
     protected void onPause(){
         super.onPause();
-        obj.setBalance(20);
+       /* obj.setBalance(20);
         Intent i = new Intent("org.npc.transaction");
-        i.putExtra("TransactionObject",obj);
+        i.putExtra("TransactionObject", obj);
         startActivity(i);
-
+*/
     }
    public void searchProductLookupCodeOnClick(View view){
        Intent intent = new Intent(this, ProductDetails.class);

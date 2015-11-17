@@ -3,7 +3,7 @@ package org.npc.test.commands;
 import org.npc.test.api.enums.ProductApiRequestStatus;
 import org.npc.test.api.models.Product;
 import org.npc.test.api.services.ProductService;
-import org.npc.test.commands.interfaces.ResultCommandInterface;
+import org.npc.test.api.interfaces.ResultCommandInterface;
 
 public class SaveProductCommand implements ResultCommandInterface<Product> {
     @Override
