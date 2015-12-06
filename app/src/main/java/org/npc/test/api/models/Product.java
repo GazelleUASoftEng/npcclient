@@ -5,6 +5,7 @@ import org.apache.commons.lang3.StringUtils;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 import java.util.UUID;
 import java.lang.String;
 
@@ -48,6 +49,7 @@ public class Product implements ConvertToJsonInterface, LoadFromJsonInterface<Pr
         return this.price;
     }
     public String getProductPriceText(){
+        System.out.println("VALUE OF PRICE IS [" + this.price + "] " + String.valueOf(this.price));
         return String.valueOf(this.price);
     }
     public Product setProductPrice(double price){
@@ -127,14 +129,17 @@ public class Product implements ConvertToJsonInterface, LoadFromJsonInterface<Pr
         if (!StringUtils.isBlank(value)) {
             this.id = UUID.fromString(value);
         }
-
+        this.quantity=rawJsonObject.optInt(ProductFieldNames.QUANTITY);
+        this.description=rawJsonObject.optString((ProductFieldNames.DESCRIPTION));
+        this.active = rawJsonObject.optBoolean(ProductFieldNames.ACTIVE);
+        this.price = rawJsonObject.optDouble(ProductFieldNames.PRICE);
         this.lookupCode = rawJsonObject.optString(ProductFieldNames.LOOKUP_CODE);
         this.count = rawJsonObject.optInt(ProductFieldNames.COUNT, -1);
 
         value = rawJsonObject.optString(ProductFieldNames.CREATED_ON);
         if (!StringUtils.isBlank(value)) {
             try {
-                this.createdOn = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS").parse(value);
+                this.createdOn = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.US).parse(value);
             } catch (ParseException e) {
                 e.printStackTrace();
             }
@@ -155,7 +160,11 @@ public class Product implements ConvertToJsonInterface, LoadFromJsonInterface<Pr
         JSONObject jsonObject = new JSONObject();
 
         try {
+            jsonObject.put(ProductFieldNames.QUANTITY,this.quantity);
+            jsonObject.put(ProductFieldNames.ACTIVE,this.active);
             jsonObject.put(ProductFieldNames.ID, this.id.toString());
+            jsonObject.put(ProductFieldNames.PRICE, this.price);
+            jsonObject.put(ProductFieldNames.DESCRIPTION,this.description);
             jsonObject.put(ProductFieldNames.LOOKUP_CODE, this.lookupCode);
             jsonObject.put(ProductFieldNames.COUNT, Integer.toString(this.count));
             jsonObject.put(ProductFieldNames.CREATED_ON, (new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS")).format(this.createdOn));
@@ -171,6 +180,8 @@ public class Product implements ConvertToJsonInterface, LoadFromJsonInterface<Pr
     public Product() {
         this.count = -1;
         this.lookupCode = "";
+        this.price = 0;
+        this.description = "";
         this.id = new UUID(0, 0);
         this.createdOn = new Date();
         this.apiRequestMessage = StringUtils.EMPTY;

@@ -9,6 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import org.npc.test.objects.TransactionObject;
+import org.npc.test.objects.orderObject;
+
 public class transaction extends AppCompatActivity {
     TransactionObject transObj;
     @Override

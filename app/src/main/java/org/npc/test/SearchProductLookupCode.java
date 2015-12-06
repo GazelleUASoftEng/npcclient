@@ -7,7 +7,9 @@ import android.widget.ListView;
 import android.view.View;
 import android.content.Intent;
 import android.widget.EditText;
-import org.npc.test.orderObject;
+
+import org.npc.test.objects.TransactionObject;
+import org.npc.test.objects.orderObject;
 
 import java.util.ArrayList;
 

@@ -2,6 +2,7 @@ package org.npc.test.api.services;
 
 import org.json.JSONObject;
 import org.npc.test.api.enums.ApiLevel;
+import org.npc.test.api.enums.CommandType;
 import org.npc.test.api.enums.ProductApiMethod;
 import org.npc.test.api.enums.ProductApiRequestStatus;
 import org.npc.test.api.interfaces.PathElementInterface;
@@ -14,6 +15,8 @@ import java.util.UUID;
 
 public class ProductService extends BaseRemoteService {
     public Product getProduct(UUID productId) {
+
+        System.out.println("Insinde getProduct");
         JSONObject rawJsonObject = this.requestSingle(
             (new PathElementInterface[] { ApiLevel.ONE, ProductApiMethod.PRODUCT }), productId
         );
@@ -27,7 +30,7 @@ public class ProductService extends BaseRemoteService {
 
     public Product getProductByLookupCode(String lookupCode) {
         JSONObject rawJsonObject = this.requestSingle(
-                (new PathElementInterface[] { ApiLevel.ONE, ProductApiMethod.PRODUCT }), lookupCode
+                new PathElementInterface[] {CommandType.PRODUCT,ProductApiMethod.BYLOOKUPCODE},lookupCode
         );
 
         if (rawJsonObject != null) {

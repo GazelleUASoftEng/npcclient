@@ -8,8 +8,8 @@ import java.util.Map;
 public enum ProductApiMethod implements PathElementInterface {
     NONE(""),
     PRODUCT("product"),
-    PRODUCTS("products");
-
+    PRODUCTS("products"),
+    BYLOOKUPCODE("bylookupcode");
     @Override
     public String getPathValue() {
         return value;

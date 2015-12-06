@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.content.Intent;
+import android.widget.Toast;
 
 import org.npc.test.api.enums.ProductApiRequestStatus;
 import org.npc.test.api.models.Product;
@@ -25,6 +26,9 @@ public class ProductDetails extends AppCompatActivity {
 
         Intent intent = getIntent();
         productLookupCode = intent.getStringExtra(this.getResources().getString(R.string.product_id_extras_key));
+        CharSequence ch = productLookupCode;
+        Toast t = Toast.makeText(getApplicationContext(),ch,Toast.LENGTH_SHORT);
+        t.show();
         getLookupCodeTextView().setText(SearchProductLookupCode.lookupcodeQuery);
 
     }
@@ -32,7 +36,6 @@ public class ProductDetails extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
         (new RetrieveProductTask()).execute(this.productLookupCode);
     }
 
@@ -78,14 +81,22 @@ public class ProductDetails extends AppCompatActivity {
 
 
     private class RetrieveProductTask extends AsyncTask<String, Void, Product> {
+
+
         protected Product doInBackground(String... productLookupCodes) {
+            System.out.println("Inside do In Background [" + productLookupCodes[0] + "]" );
             return (new ProductService()).getProductByLookupCode(productLookupCodes[0]);
         }
 
+
         protected void onPostExecute(Product result) {
+            System.out.println("Inside Post Execute " + result.getApiRequestMessage());
             if (result.getApiRequestStatus() == ProductApiRequestStatus.OK) {
                 getLookupCodeTextView().setText(result.getLookupCode());
+                System.out.println("get lookup code is ["+result.getLookupCode() + "]");
                 getDescriptionTextView().setText(result.getProductDescription());
+                System.out.println("get description is [" + result.getProductDescription() + "]");
+                System.out.println("the date created is [" + result.getCreatedOn() + "]");
                 getPriceTextView().setText(result.getProductPriceText());
                 getActiveTextView().setText(result.getProductActiveText());
                 getQuantityTextView().setText(result.getProductQuantityText());

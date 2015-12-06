@@ -64,6 +64,7 @@ public abstract class BaseRemoteService {
         } catch (ProtocolException e) {
             e.printStackTrace();
         } catch (IOException e){
+            System.out.println("Connection Failed");
             e.printStackTrace();
         } finally {
             if (httpURLConnection != null) {
@@ -167,5 +168,5 @@ public abstract class BaseRemoteService {
     private static final String ACCEPT_REQUEST_PROPERTY = "Accept";
     private static final String JSON_PAYLOAD_TYPE = "application/json";
     private static final String CONTENT_TYPE_REQUEST_PROPERTY = "Content-Type";
-    private static final String BASE_URL = "http://192.168.1.68:8080/test/";
+    private static final String BASE_URL =   "http://10.0.2.2:8080/test/";
 }
